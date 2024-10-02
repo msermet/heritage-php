@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Vehicule {
+    # string marque
+    # string modele
+    # int vitesseMax
+    # float prixJournalier
+    + afficherInfos() : void
+    + calculerCoutLocation(int $nbJours)) : int
+}
+
+class Voiture {
+    - int nombrePortes
+    - string typeCarburant
+    + afficherInfos() : void
+    + calculerCoutLocation(int $nbJours)
+}
+
+class Moto {
+    - string typeGuidon
+    + afficherInfos() : void
+    + calculerCoutLocation(int $nbJours) : int
+}
+
+class Location {
+    - int nbJours
+    + louerVehicule(Vehicule $vehicule) : void
+    + afficherDetailsLocation() : void
+}
+
+
+Voiture--|>Vehicule
+Moto--|>Vehicule
+Location "0..*" --> "0..*" Vehicule
+@enduml
