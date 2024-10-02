@@ -68,9 +68,8 @@ class Vehicule
         echo "Marque : $this->marque \nModèle : $this->modele \nVitesse max : $this->vitesseMax \nPrix journalier : $this->prixJournalier";
     }
 
-    public function calculerCoutLocation(int $nbJours)
+    public function calculerCoutLocation(int $nbJours): float
     {
-        $cout = $this->prixJournalier*$nbJours;
-        echo "Coût pour $nbJours jours : $cout €";
+        return $this->prixJournalier * $nbJours;
     }
 }

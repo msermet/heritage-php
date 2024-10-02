@@ -24,15 +24,15 @@ class Moto extends Vehicule
 
     public function afficherInfos() : void
     {
-        echo "Type de guidon : $this->typeGuidon";
+        echo "Moto :\nMarque : $this->marque \nModèle : $this->modele \nVitesse max : $this->vitesseMax \nPrix journalier : $this->prixJournalier \nType de guidon : $this->typeGuidon";
     }
 
-    public function calculerCoutLocation(int $nbJours) : void
+    public function calculerCoutLocation(int $nbJours): float
     {
-        $cout = $this->prixJournalier*$nbJours;
-        if ($nbJours>7) {
-            $cout=$cout*0.95;
+        $cout = $this->prixJournalier * $nbJours;
+        if ($nbJours > 7) {
+            $cout *= 0.95;
         }
-        echo "Coût pour $nbJours jours : $cout €";
+        return $cout;
     }
 }

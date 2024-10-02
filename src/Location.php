@@ -4,23 +4,10 @@ namespace App;
 
 class Location
 {
-    private array $vehicules;
+    private array $vehicules = [];
     private int $nbJours;
 
-    /**
-     * @param int $nbJours
-     */
     public function __construct(int $nbJours)
-    {
-        $this->nbJours = $nbJours;
-    }
-
-    public function getNbJours(): int
-    {
-        return $this->nbJours;
-    }
-
-    public function setNbJours(int $nbJours): void
     {
         $this->nbJours = $nbJours;
     }
@@ -32,8 +19,15 @@ class Location
 
     public function afficherDetailsLocation() : void
     {
+        $totalGlobal = 0;
         foreach ($this->vehicules as $vehicule) {
-            echo $vehicule->afficherInfos();
+            $vehicule->afficherInfos();
+            echo PHP_EOL;
+            $cout = $vehicule->calculerCoutLocation($this->nbJours);
+            echo "Coût pour " . $this->nbJours . " jours : " . $cout . " €";
+            echo PHP_EOL;
+            $totalGlobal += $cout;
         }
+        echo PHP_EOL . "Coût total de la location : " . $totalGlobal . " €";
     }
 }

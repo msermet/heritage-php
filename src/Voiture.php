@@ -36,15 +36,15 @@ class Voiture extends Vehicule
 
     public function afficherInfos() : void
     {
-        echo "Nombre de portes : $this->nombrePortes \nType de carburant : $this->typeCarburant";
+        echo "Voiture :\nMarque : $this->marque \nModèle : $this->modele \nVitesse max : $this->vitesseMax \nPrix journalier : $this->prixJournalier \nNombre de portes : $this->nombrePortes \nType de carburant : $this->typeCarburant";
     }
 
-    public function calculerCoutLocation(int $nbJours) : void
+    public function calculerCoutLocation(int $nbJours): float
     {
-        $cout = $this->prixJournalier*$nbJours;
-        if ($this->typeCarburant=="électrique") {
-            $cout=$cout*1.1;
+        $cout = $this->prixJournalier * $nbJours;
+        if ($this->typeCarburant == "électrique") {
+            $cout *= 1.1;
         }
-        echo "Coût pour $nbJours jours : $cout €";
+        return $cout;
     }
 }
